@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct SVGTintApp: App {
+struct SVG2ImageApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
 
     var body: some Scene {
@@ -11,7 +11,7 @@ struct SVGTintApp: App {
         .defaultSize(width: 1200, height: 800)
         .commands {
             CommandGroup(after: .appInfo) {
-                Button("Make SVG Tint the Default App for SVG Files…") {
+                Button("Make SVG2Image the Default App for SVG Files…") {
                     DefaultHandler.makeDefault()
                 }
             }

@@ -17,10 +17,10 @@ enum DefaultHandler {
     static func offerIfNeeded() {
         guard !isDefault, !UserDefaults.standard.bool(forKey: dontAskKey) else { return }
         let alert = NSAlert()
-        alert.messageText = "Open SVG files with SVG Tint?"
+        alert.messageText = "Open SVG files with SVG2Image?"
         alert.informativeText = "Double-clicking an .svg file in Finder will open it here"
             + (currentHandler.map { " instead of in \(appName($0))" } ?? "")
-            + ". You can change this later from the SVG Tint menu."
+            + ". You can change this later from the SVG2Image menu."
         alert.addButton(withTitle: "Make Default")
         alert.addButton(withTitle: "Not Now")
         alert.showsSuppressionButton = true
@@ -44,7 +44,7 @@ enum DefaultHandler {
                     alert.messageText = "Couldn’t change the default app"
                     alert.informativeText = error.localizedDescription
                 } else {
-                    alert.messageText = "SVG Tint now opens SVG files"
+                    alert.messageText = "SVG2Image now opens SVG files"
                     alert.informativeText = "Double-click any .svg in Finder to open it here."
                 }
                 alert.runModal()

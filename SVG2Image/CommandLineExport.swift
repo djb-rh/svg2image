@@ -1,6 +1,6 @@
 import AppKit
 
-/// `SVG Tint --export in.svg out.png [--width N | --height N] [--dpi 96] [--background #FFFFFF] [--quality 0.9]`
+/// `SVG2Image --export in.svg out.png [--width N | --height N] [--dpi 96] [--background #FFFFFF] [--quality 0.9]`
 /// Uses the same renderer as the Export sheet. The format comes from the output extension.
 @MainActor
 enum CommandLineExport {
@@ -10,7 +10,7 @@ enum CommandLineExport {
                 try await export(Array(CommandLine.arguments.drop(while: { $0 != "--export" }).dropFirst()))
                 exit(0)
             } catch {
-                FileHandle.standardError.write(Data("svg-tint: \(error.localizedDescription)\n".utf8))
+                FileHandle.standardError.write(Data("svg2image: \(error.localizedDescription)\n".utf8))
                 exit(1)
             }
         }
@@ -51,6 +51,6 @@ enum CommandLineExport {
     }
 
     private static func failure(_ message: String) -> Error {
-        NSError(domain: "SVGTint", code: 1, userInfo: [NSLocalizedDescriptionKey: message])
+        NSError(domain: "SVG2Image", code: 1, userInfo: [NSLocalizedDescriptionKey: message])
     }
 }

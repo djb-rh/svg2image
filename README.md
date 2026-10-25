@@ -6,12 +6,13 @@ A small macOS app for recolouring SVG files and exporting them to raster or PDF.
 
 ## Install
 
-Download `SVG2Image-1.0.pkg` from [Releases](https://github.com/djb-rh/svg2image/releases) and open it; it
-puts `SVG2Image.app` in `/Applications`. Needs macOS 14 or later.
+Download **`SVG2Image-1.0.dmg`** from [Releases](https://github.com/djb-rh/svg2image/releases), open it and
+drag SVG2Image to Applications. It is signed with a Developer ID and notarized by Apple, so it opens
+without warnings. Needs macOS 14 or later.
 
-The app and package are ad-hoc signed, not notarized, so the first time macOS will refuse to open the
-package. Right-click it and choose **Open**, or go to **System Settings ▸ Privacy & Security** and click
-**Open Anyway**.
+`SVG2Image-1.0.pkg` is also there if you prefer an installer (it puts the same notarized app in
+`/Applications`). The package itself isn't signed yet, so macOS stops it the first time: right-click it
+and choose **Open**, or click **Open Anyway** in **System Settings ▸ Privacy & Security**.
 
 ## Use
 
@@ -59,7 +60,10 @@ xcodebuild -project SVG2Image.xcodeproj -scheme SVG2Image -configuration Release
 ```
 
 The app lands in `build/Build/Products/Release/SVG2Image.app`, ad-hoc signed. macOS 14 or later.
-`scripts/make-pkg.sh` does the Release build and wraps it in `dist/SVG2Image-<version>.pkg`.
+`scripts/release.sh` does the Release build and writes `dist/SVG2Image-<version>.dmg` and `.pkg`.
+Set `SIGN_IDENTITY` (Developer ID Application), `NOTARY_PROFILE` (a `notarytool` keychain profile) and,
+for the package, `INSTALLER_IDENTITY` (Developer ID Installer) to sign, notarize and staple them;
+without them everything is ad-hoc signed.
 No dependencies; rendering is WebKit (display, hit-testing, canvas rasterising, `createPDF`) and
 ImageIO (file formats).
 

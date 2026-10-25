@@ -6,13 +6,13 @@ A small macOS app for recolouring SVG files and exporting them to raster or PDF.
 
 ## Install
 
-Download **`SVG2Image-1.0.dmg`** from [Releases](https://github.com/djb-rh/svg2image/releases), open it and
-drag SVG2Image to Applications. It is signed with a Developer ID and notarized by Apple, so it opens
-without warnings. Needs macOS 14 or later.
+Download from [Releases](https://github.com/djb-rh/svg2image/releases) either:
 
-`SVG2Image-1.0.pkg` is also there if you prefer an installer (it puts the same notarized app in
-`/Applications`). The package itself isn't signed yet, so macOS stops it the first time: right-click it
-and choose **Open**, or click **Open Anyway** in **System Settings ▸ Privacy & Security**.
+- **`SVG2Image-1.0.pkg`** — an installer that puts SVG2Image in `/Applications`, or
+- **`SVG2Image-1.0.dmg`** — open it and drag SVG2Image to Applications.
+
+Both are signed with a Developer ID and notarized by Apple, so they open without warnings.
+Needs macOS 14 or later.
 
 ## Use
 
